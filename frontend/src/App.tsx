@@ -1,22 +1,28 @@
 import "./App.css";
 import getNotes from "./hooks/getNotes";
-import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
 console.log(await getNotes());
 
+function Note({ note }: { note: Note }) {
+  return (
+    <div>
+      <h2>{note.title}</h2>
+      <p>{note.date.toDateString()}</p>
+      <div dangerouslySetInnerHTML={{ __html: note.content }} />
+    </div>
+  );
+}
+
 function App() {
-  const [notes, setNotes] = useState<Note[]>([]);
-  useEffect(() => {
-    getNotes().then((data) => {
-      setNotes(data);
-    });
-  });
+  const notes = useLoaderData() as Note[];
+
   return (
     <div>
       Hello World!
       <ul>
         {notes.map((note) => (
-          <li key={note.id}>{note.title}</li>
+          <Note note={note} />
         ))}
       </ul>
     </div>

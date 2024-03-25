@@ -1,0 +1,18 @@
+#note-details div.title-layout {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+
+#note-details div.title-layout h1 {
+  margin: 2rem 0 0 0;
+}
+
+#note-details div.title-layout .metadata {
+  display: flex;
+  flex-direction: column-reverse;
+  place-items: end center;
+}
+
+#note-details div.title-layout p {
+  margin: 0;
+}

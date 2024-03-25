@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App, { loader as appLoader } from "./App.tsx";
 import NoteDetails, { loader as noteLoader } from "./NoteDetails.tsx";
 import "./index.css";
+import "./code.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([

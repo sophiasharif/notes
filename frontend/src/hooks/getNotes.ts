@@ -8,6 +8,8 @@ export async function getNotes() {
       id: doc.id,
       title: doc.data().title,
       content: doc.data().content,
+      summary: doc.data().summary,
+      tags: doc.data().tags,
       date: new Date(doc.data().date),
     };
   });
@@ -24,6 +26,8 @@ export async function getNote(nodeId: string): Promise<Note | null> {
     id: d.id,
     title: d.data().title,
     content: d.data().content,
+    summary: d.data().summary,
+    tags: d.data().tags,
     date: new Date(d.data().date),
   };
 }

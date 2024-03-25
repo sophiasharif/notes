@@ -1,5 +1,6 @@
 import { getNote } from "./hooks/getNotes";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import "./NoteDetails.css";
 
 export async function loader({ params }: any) {
   const note = await getNote(params.noteId);
@@ -11,9 +12,26 @@ export default function NoteDetails() {
   if (!note) {
     return <div>404 Not Found</div>;
   }
+
+  const date = `${note.date.getMonth() + 1}/${note.date.getDate()}/${note.date
+    .getFullYear()
+    .toString()
+    .slice(-2)}`;
+  const tags = note.tags.join(", ");
+
   return (
-    <div>
-      <p>{note.date.toDateString()}</p>
+    <div id="note-details">
+      <Link to="/">◀ Back</Link>
+      <div className="title-layout">
+        <div>
+          <h1>{note.title}</h1>
+        </div>
+        <div className="metadata">
+          <p>{tags}</p>
+          <p>{date}</p>
+        </div>
+      </div>
+      <i>{note.summary}</i>
       <div dangerouslySetInnerHTML={{ __html: note.content }} />
     </div>
   );

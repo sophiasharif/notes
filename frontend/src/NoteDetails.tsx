@@ -13,7 +13,6 @@ export default function NoteDetails() {
   }
   return (
     <div>
-      <h2>{note.title}</h2>
       <p>{note.date.toDateString()}</p>
       <div dangerouslySetInnerHTML={{ __html: note.content }} />
     </div>

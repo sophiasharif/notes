@@ -4,7 +4,6 @@ import datetime
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-# TODO: get path to note
 note_path = sys.argv[1]
 
 with open(note_path, "r") as file:
@@ -12,7 +11,7 @@ with open(note_path, "r") as file:
     # get note content and convert to html
     note = file.read()
     title = note.split("\n")[0].strip("# ") # get title from first line
-    html = markdown.markdown(note)
+    html = markdown.markdown(note, extensions=['fenced_code', 'codehilite'])
     date = datetime.datetime.now().isoformat()
     doc_id = title.replace(" ", "-").lower() + "-" + date.split("T")[0]
     
@@ -21,7 +20,5 @@ with open(note_path, "r") as file:
     cred = credentials.Certificate(cert_location)
     app = firebase_admin.initialize_app(cred)
     db = firestore.client()
-    doc_ref = db.collection('users').document(doc_id)
+    doc_ref = db.collection('notes').document(doc_id)
     doc_ref.set({"title": title, "date": date, "content": html}) # TODO: tags
-
-# TODO: add exit statuses

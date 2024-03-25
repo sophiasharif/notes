@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import getNotes from "./hooks/getNotes.ts";
-import NoteDetails from "./NoteDetails.tsx";
+import App, { loader as appLoader } from "./App.tsx";
+import NoteDetails, { loader as noteLoader } from "./NoteDetails.tsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -10,11 +9,12 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    loader: getNotes,
+    loader: appLoader,
     errorElement: <div>404 Not Found</div>,
   },
   {
     path: "/notes/:noteId",
+    loader: noteLoader,
     element: <NoteDetails />,
   },
 ]);

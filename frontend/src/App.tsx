@@ -1,15 +1,16 @@
 import "./App.css";
-import getNotes from "./hooks/getNotes";
+import { getNotes } from "./hooks/getNotes";
 import { useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-console.log(await getNotes());
+export async function loader() {
+  return getNotes();
+}
 
 function Note({ note }: { note: Note }) {
   return (
     <div>
-      <h2>{note.title}</h2>
-      <p>{note.date.toDateString()}</p>
-      <div dangerouslySetInnerHTML={{ __html: note.content }} />
+      <Link to={`/notes/${note.id}`}> {note.title} </Link>
     </div>
   );
 }

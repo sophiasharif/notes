@@ -1,7 +1,7 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase/config.js";
 
-export default async function getNotes() {
+export async function getNotes() {
   const snapshot = await getDocs(collection(db, "notes"));
   const notesList: Note[] = snapshot.docs.map((doc) => {
     return {
@@ -12,4 +12,18 @@ export default async function getNotes() {
     };
   });
   return notesList;
+}
+
+export async function getNote(nodeId: string): Promise<Note | null> {
+  const d = await getDoc(doc(db, "notes", nodeId));
+  if (!d.exists()) {
+    console.log("Failed to fetch note ", nodeId);
+    return null;
+  }
+  return {
+    id: d.id,
+    title: d.data().title,
+    content: d.data().content,
+    date: new Date(d.data().date),
+  };
 }

@@ -12,7 +12,10 @@ content of note
 import os, hashlib, markdown, datetime, firebase_admin
 from firebase_admin import credentials, firestore
 
-NOTES_DIR = "/Users/sophiasharif/notes" # change this to envronment variable
+# get notes_dir from environment variable
+NOTES_DIR = os.environ.get("NOTES_DIR")
+PROJECTS_DIR = os.environ.get("PROJECTS_DIR")
+IGNORED_FILE = f"{PROJECTS_DIR}/blog/note-upload/ignored-files.txt"
 
 # initialize firebase
 cert_location = "/Users/sophiasharif/Desktop/projects/blog/note-upload/blog-fcb54-firebase-adminsdk-l7q62-5879920725.json"
@@ -92,7 +95,7 @@ def calculate_file_hash(filepath):
 
 
 def get_ignored_files():
-    with open("ignored-files.txt", "r") as file:
+    with open(IGNORED_FILE, "r") as file:
         lines = file.readlines()
         return set(f"{NOTES_DIR}/{line.strip()}" for line in lines)
 

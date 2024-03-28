@@ -13,6 +13,7 @@ export async function getNotes() {
       date: new Date(doc.data().date),
     };
   });
+  notesList.sort((a, b) => b.date.getTime() - a.date.getTime());
   return notesList;
 }
 

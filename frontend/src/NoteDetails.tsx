@@ -1,5 +1,6 @@
 import { getNote } from "./hooks/getNotes";
 import { Link, useLoaderData } from "react-router-dom";
+import { displayDate } from "./hooks/utils";
 import "./NoteDetails.css";
 
 export async function loader({ params }: any) {
@@ -13,10 +14,7 @@ export default function NoteDetails() {
     return <div>404 Not Found</div>;
   }
 
-  const date = `${note.date.getMonth() + 1}/${note.date.getDate()}/${note.date
-    .getFullYear()
-    .toString()
-    .slice(-2)}`;
+  const date = displayDate(note.date);
   const tags = note.tags.join(", ");
 
   return (

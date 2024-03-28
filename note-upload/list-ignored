@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# USAGE: list-ignored
+# Lists all the notes that are currently ignored
+
+IGNORED_FILE="$PROJECTS_DIR/blog/note-upload/ignored-files.txt"
+cat $IGNORED_FILE

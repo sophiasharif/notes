@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# USAGE: unignore <note_name>
+# where <note_name> is a relative path to a markdown file from the notes directory
+
+if [ -z $1 ]; then
+    echo "Usage: unignore <note_name>"
+    exit 1
+fi
+
+IGNORED_FILE="$PROJECTS_DIR/blog/note-upload/ignored-files.txt"
+
+grep -vx $1 $IGNORED_FILE >temp
+rm $IGNORED_FILE
+mv temp $IGNORED_FILE

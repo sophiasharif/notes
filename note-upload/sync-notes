@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# USAGE: sync-notes
+# Syncs local notes directory with firebase
+
+SCRIPT=$PROJECTS_DIR/blog/note-upload/main.py
+python3 $SCRIPT

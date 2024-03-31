@@ -11,15 +11,17 @@ export async function loader() {
 
 function Note({ note }: { note: Note }) {
   const date = displayDate(note.date);
-  const tags = note.tags.join(", ");
   return (
     <div className="note">
-      <span className="date">{date}</span>
-      <span className="title">
-        <Link to={`/notes/${note.id}`}> {note.title} </Link>
-      </span>
-      <span className="tags">{tags}</span>
-      <div className="summary">{note.summary}</div>
+      <header>
+        <h4>
+          <Link to={`/notes/${note.id}`}>
+            <strong>{note.title}</strong>
+          </Link>
+        </h4>
+        <p>{date}</p>
+      </header>
+      <p>{note.summary}</p>
     </div>
   );
 }
@@ -35,17 +37,51 @@ function LatestNotes() {
     filteredNotes = searchNotes(notes, searchPattern);
   }
 
+  let [page, setPage] = useState(1);
+  const notesPerPage = 5;
+  const maxPage = Math.ceil(filteredNotes.length / notesPerPage);
+  const start = (page - 1) * notesPerPage;
+  const end = page * notesPerPage;
+  filteredNotes = filteredNotes.slice(start, end);
+
   return (
     <div id="latest-notes">
-      <h1>Latest Notes</h1>
-      <input
-        type="text"
-        placeholder="Search..."
-        onChange={(e) => setSearchPattern(e.target.value)}
-      />
-      {filteredNotes.map((note) => (
-        <Note note={note} key={note.id} />
-      ))}
+      <div className="hero">
+        <h1>Sophia's Notes</h1>
+        <input
+          type="text"
+          placeholder="Search..."
+          onChange={(e) => setSearchPattern(e.target.value)}
+        />
+      </div>
+      <div className="notes">
+        {filteredNotes.map((note) => (
+          <Note note={note} key={note.id} />
+        ))}
+      </div>
+      <div className="pagination">
+        <button
+          onClick={() => {
+            if (page > 1) {
+              setPage(page - 1);
+            }
+          }}
+        >
+          ◀
+        </button>
+        <span>
+          Page {page} of {maxPage}
+        </span>
+        <button
+          onClick={() => {
+            if (page < maxPage) {
+              setPage(page + 1);
+            }
+          }}
+        >
+          ▶
+        </button>
+      </div>
     </div>
   );
 }

@@ -19,7 +19,7 @@ function Note({ note }: { note: Note }) {
             <strong>{note.title}</strong>
           </Link>
         </h4>
-        <p>{date}</p>
+        <p className="date">{date}</p>
       </header>
       <p>{note.summary}</p>
     </div>
@@ -54,33 +54,35 @@ function LatestNotes() {
           onChange={(e) => setSearchPattern(e.target.value)}
         />
       </div>
-      <div className="notes">
-        {filteredNotes.map((note) => (
-          <Note note={note} key={note.id} />
-        ))}
-      </div>
-      <div className="pagination">
-        <button
-          onClick={() => {
-            if (page > 1) {
-              setPage(page - 1);
-            }
-          }}
-        >
-          ◀
-        </button>
-        <span>
-          Page {page} of {maxPage}
-        </span>
-        <button
-          onClick={() => {
-            if (page < maxPage) {
-              setPage(page + 1);
-            }
-          }}
-        >
-          ▶
-        </button>
+      <div className="notes-column">
+        <div className="notes">
+          {filteredNotes.map((note) => (
+            <Note note={note} key={note.id} />
+          ))}
+        </div>
+        <div className="pagination">
+          <button
+            onClick={() => {
+              if (page > 1) {
+                setPage(page - 1);
+              }
+            }}
+          >
+            ◀
+          </button>
+          <span>
+            Page {page} of {maxPage}
+          </span>
+          <button
+            onClick={() => {
+              if (page < maxPage) {
+                setPage(page + 1);
+              }
+            }}
+          >
+            ▶
+          </button>
+        </div>
       </div>
     </div>
   );

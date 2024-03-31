@@ -10,7 +10,8 @@ service cloud.firestore {
       // Make sure to write security rules for your app before that time, or
       // else all client requests to your database will be denied until you
       // update your rules.
-      allow read, write: if request.time < timestamp.date(2024, 4, 23);
+      allow read: if true; // Anyone can read
+      allow write: if false; // No one can write through client SDKs
     }
   }
 }

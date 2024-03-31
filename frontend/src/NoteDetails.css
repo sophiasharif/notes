@@ -1,18 +1,27 @@
-#note-details div.title-layout {
-  display: grid;
-  grid-template-columns: 5fr 1fr;
+#note-details {
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
 }
 
-#note-details div.title-layout h1 {
-  margin: 2rem 0 0 0;
+#note-details section.title-layout {
+  margin: 2rem 0;
 }
 
-#note-details div.title-layout .metadata {
-  display: flex;
-  flex-direction: column-reverse;
-  place-items: end center;
-}
-
-#note-details div.title-layout p {
+#note-details section.title-layout h1,
+p {
   margin: 0;
+}
+
+#note-details section.title-layout div.tags {
+  margin: 0.5rem 0;
+}
+
+#note-details section.title-layout span.tag {
+  margin: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background-color: var(--primary-variant);
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }

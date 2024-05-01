@@ -48,17 +48,29 @@ def process_status_object(object_lines: list[str]) -> dict:
     if len(object_lines) != 2:
         raise ValueError(f'Invalid status object: {object_lines}')
     
-    attr, title = process_string(object_lines[0])
+    attr, type = process_string(object_lines[0])
     if attr != 'title':
         raise ValueError(f'Invalid status object: {object_lines}')
     
     attr, data = process_string_list(object_lines[1])
+    finalized_data = []
+    for item in data:
+        try:
+            item_title, item_description = item.split('(')
+
+            item_description = item_description[:-1]
+            finalized_data.append({
+                'title': item_title.strip(),
+                'description': item_description.strip()
+            })
+        except ValueError:
+            raise ValueError(f'Invalid data object: {item}')
     if attr != 'data':
         raise ValueError(f'Invalid status object: {object_lines}')
-    
+    print(finalized_data)
     return {
-        'title': title,
-        'data': data
+        'type': type,
+        'data': finalized_data
     }
 
 # TIME.MD SPECIFIC FUNCTIONS
@@ -84,7 +96,7 @@ def process_time_object(object_lines: list[str]) -> dict:
     }
 
 
-# process_file_data('status', process_status_object)
+process_file_data('status', process_status_object)
 process_file_data('timeline', process_time_object)
 
 

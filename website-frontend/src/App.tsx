@@ -12,10 +12,15 @@ interface TimelineItem {
   description: string;
 }
 
+interface StatusItem {
+  title: string;
+  description: string;
+}
+
 const timeline: TimelineItem[] = timeline_data;
-const courses = status_data.filter((d) => d.title == "courses")[0].data;
-const projects = status_data.filter((d) => d.title == "projects")[0].data;
-const hobbies = status_data.filter((d) => d.title == "hobbies")[0].data;
+const courses = status_data.filter((d) => d.type == "courses")[0].data;
+const projects = status_data.filter((d) => d.type == "projects")[0].data;
+const hobbies = status_data.filter((d) => d.type == "hobbies")[0].data;
 
 const links = [
   { name: "GitHub", url: "https://github.com/sophiasharif", icon: FaGithub },
@@ -74,43 +79,72 @@ function Timeline() {
   );
 }
 
+function Status({
+  section,
+  header,
+  items,
+}: {
+  section: string;
+  header: string;
+  items: StatusItem[];
+}) {
+  return (
+    <div id={section}>
+      <h2>{header}</h2>
+      {items.map((item) => (
+        <div>
+          <h4>{item.title}</h4>
+          <p className="itemDescription">
+            <span>{item.description}</span>
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function AboutMe() {
+  return (
+    <section id="about-me">
+      <h1>Sophia Sharif</h1>
+      <p>
+        Hey, I'm Sophia! I'm a CS student at UCLA finishing off my sophomore
+        year. After that, I'll be heading to New York to work at Palantir as a
+        Software Engineer intern, where I'll be working on their Foundry
+        platform!
+      </p>
+      <div id="links">
+        {links.map((link) => (
+          <a
+            href={link.url}
+            target="_blank"
+            style={{ color: "inherit", textDecoration: "none" }}
+          >
+            <link.icon size={ICON_SIZE} />
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function App() {
   return (
     <>
-      <section id="about-me">
-        <h1>Sophia Sharif</h1>
-        <div id="links">
-          {links.map((link) => (
-            <a
-              href={link.url}
-              target="_blank"
-              style={{ color: "inherit", textDecoration: "none" }}
-            >
-              <link.icon size={ICON_SIZE} />
-            </a>
-          ))}
-        </div>
-        <img src={profileImage} alt="Profile" />
-        <div id="courses">
-          <h2>What I'm learning this quarter...</h2>
-          {courses.map((course) => (
-            <p>{course}</p>
-          ))}
-        </div>
-        <div id="projects">
-          <h2>What I'm working on...</h2>
-          {projects.map((project) => (
-            <p>{project}</p>
-          ))}
-        </div>
-        <div id="hobbies">
-          <h2>What I'm involved in...</h2>
-          {hobbies.map((hobby) => (
-            <p>{hobby}</p>
-          ))}
-        </div>
-        <Timeline />
-      </section>
+      <AboutMe />
+      <img src={profileImage} alt="Profile" />
+      <Status section="courses" items={courses} header="What I'm learning..." />
+      <Status
+        section="hobbies"
+        items={hobbies}
+        header="What I'm involved in..."
+      />
+      <Status
+        section="projects"
+        items={projects}
+        header="What I'm working on..."
+      />
+      <Timeline />
     </>
   );
 }

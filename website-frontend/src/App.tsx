@@ -17,11 +17,12 @@ interface StatusItem {
   description: string;
 }
 
+const ICON_SIZE = "2em";
+
 const timeline: TimelineItem[] = timeline_data;
 const courses = status_data.filter((d) => d.type == "courses")[0].data;
 const projects = status_data.filter((d) => d.type == "projects")[0].data;
 const hobbies = status_data.filter((d) => d.type == "hobbies")[0].data;
-
 const links = [
   { name: "GitHub", url: "https://github.com/sophiasharif", icon: FaGithub },
   {
@@ -36,8 +37,6 @@ const links = [
   },
   { name: "Class Notes", url: "https://notes.sophiasharif.com/", icon: FaPen },
 ];
-
-const ICON_SIZE = "2em";
 
 function Timeline() {
   const [item, setItem] = useState(0);
@@ -89,7 +88,7 @@ function Status({
   items: StatusItem[];
 }) {
   return (
-    <div id={section}>
+    <div id={section} className="status">
       <h2>{header}</h2>
       {items.map((item) => (
         <div>
@@ -105,7 +104,7 @@ function Status({
 
 function AboutMe() {
   return (
-    <section id="about-me">
+    <div id="about-me">
       <h1>Sophia Sharif</h1>
       <p>
         Hey, I'm Sophia! I'm a CS student at UCLA finishing off my sophomore
@@ -124,27 +123,35 @@ function AboutMe() {
           </a>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
 
 function App() {
   return (
     <>
-      <AboutMe />
-      <img src={profileImage} alt="Profile" />
-      <Status section="courses" items={courses} header="What I'm learning..." />
-      <Status
-        section="hobbies"
-        items={hobbies}
-        header="What I'm involved in..."
-      />
-      <Status
-        section="projects"
-        items={projects}
-        header="What I'm working on..."
-      />
-      <Timeline />
+      <section id="hero">
+        <img src={profileImage} alt="Profile" id="profile-image" />
+        <AboutMe />
+      </section>
+      <section id="content">
+        <Status
+          section="courses"
+          items={courses}
+          header="What I'm learning..."
+        />
+        <Status
+          section="projects"
+          items={projects}
+          header="What I'm working on..."
+        />
+        <Status
+          section="hobbies"
+          items={hobbies}
+          header="What I'm involved in..."
+        />
+        <Timeline />
+      </section>
     </>
   );
 }

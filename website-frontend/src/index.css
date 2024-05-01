@@ -19,6 +19,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  max-width: 1250px;
+  padding: 0 2rem;
+  margin: 0 auto;
 }
 
 * {
@@ -50,8 +54,110 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: var(--background-variant);
+  background-color: transparent;
   cursor: pointer;
   transition: border-color 0.25s;
   color: var(--text);
+}
+
+#hero {
+  display: grid;
+  place-items: center;
+  grid-template-areas: "profile-image about-me";
+  min-height: 100vh;
+  gap: 5rem;
+}
+
+#profile-image {
+  grid-area: profile-image;
+  border-radius: 1rem;
+}
+
+#about-me {
+  grid-area: about-me;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+#links a:hover {
+  color: var(--primary) !important;
+  transition: color 0.5s ease;
+}
+
+#content {
+  display: grid;
+  grid-template-areas: "hobbies projects projects" "courses timeline timeline";
+  gap: 5rem;
+}
+
+#courses {
+  grid-area: courses;
+}
+
+#hobbies {
+  grid-area: hobbies;
+}
+
+#projects {
+  grid-area: projects;
+}
+
+#timeline {
+  grid-area: timeline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 0.25rem;
+  margin-top: 0.75rem;
+}
+
+p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  :root {
+    padding: 0;
+    margin: 0;
+  }
+
+  #hero {
+    grid-template-areas: "about-me" "profile-image";
+    gap: 1rem;
+    min-height: 0;
+  }
+
+  #about-me {
+    gap: 1rem;
+  }
+
+  #content {
+    grid-template-areas: "hobbies" "projects" "courses" "timeline";
+    gap: 2rem;
+  }
+
+  img#profile-image {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
 }

@@ -17,7 +17,7 @@ interface StatusItem {
   description: string;
 }
 
-const ICON_SIZE = "2em";
+const ICON_SIZE = "1.75rem";
 
 const timeline: TimelineItem[] = timeline_data;
 const courses = status_data.filter((d) => d.type == "courses")[0].data;
@@ -106,6 +106,7 @@ function AboutMe() {
   return (
     <div id="about-me">
       <h1>Sophia Sharif</h1>
+      <img src={profileImage} alt="Profile" id="profile-image" />
       <p>
         Hey, I'm Sophia! I'm a CS student at UCLA finishing off my sophomore
         year. After that, I'll be heading to New York to work at Palantir as a
@@ -129,11 +130,8 @@ function AboutMe() {
 
 function App() {
   return (
-    <>
-      <section id="hero">
-        <img src={profileImage} alt="Profile" id="profile-image" />
-        <AboutMe />
-      </section>
+    <div id="app">
+      <AboutMe />
       <section id="content">
         <Status
           section="courses"
@@ -152,7 +150,7 @@ function App() {
         />
         <Timeline />
       </section>
-    </>
+    </div>
   );
 }
 

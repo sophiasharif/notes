@@ -47,7 +47,10 @@ function Timeline() {
       <h2>What I've been up to...</h2>
       <h3>{currentItem.event}</h3>
       <p>{currentItem.date}</p>
-      <div dangerouslySetInnerHTML={{ __html: currentItem.description }}></div>
+      <div
+        dangerouslySetInnerHTML={{ __html: currentItem.description }}
+        id="timeline-content"
+      ></div>
       <div className="pagination">
         <button
           onClick={() => {

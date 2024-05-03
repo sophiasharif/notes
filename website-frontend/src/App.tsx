@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import status_data from "./data/status.json";
 import timeline_data from "./data/timeline.json";
 import profileImage from "./images/profile.jpg";
 import { FaGithub, FaPen, FaLinkedin, FaDice } from "react-icons/fa";
 import { IoDocumentText } from "react-icons/io5";
+import anime from "animejs/lib/anime.es.js";
+import Background from "./Background";
 
 interface TimelineItem {
   event: string;
@@ -45,8 +47,8 @@ function Timeline() {
   return (
     <div id="timeline">
       <h2>What I've been up to...</h2>
-      <h3>{currentItem.event}</h3>
-      <p>{currentItem.date}</p>
+      <h4>{currentItem.event}</h4>
+      <p className="subtitle">{currentItem.date}</p>
       <div
         dangerouslySetInnerHTML={{ __html: currentItem.description }}
         id="timeline-content"
@@ -94,7 +96,7 @@ function Status({
     <div id={section} className="status">
       <h2>{header}</h2>
       {items.map((item) => (
-        <div>
+        <div key={item.title}>
           <h4>{item.title}</h4>
           <p className="itemDescription">
             <span>{item.description}</span>
@@ -106,9 +108,34 @@ function Status({
 }
 
 function AboutMe() {
+  useEffect(() => {
+    anime.timeline().add({
+      targets: ".letter",
+      translateY: ["1em", 0],
+      translateX: [".5em", 0],
+      rotateZ: [180, 0],
+      duration: 1000,
+      easing: "easeOutExpo",
+      delay: anime.stagger(50),
+    });
+  }, []);
   return (
     <div id="about-me">
-      <h1>Sophia Sharif</h1>
+      <h1 id="name">
+        <span className="letter-wrapper">
+          {"Sophia".split("").map((l, i) => (
+            <span className="letter" key={i}>
+              {l}
+            </span>
+          ))}{" "}
+          {"Sharif".split("").map((l, i) => (
+            <span className="letter" key={i}>
+              {l}
+            </span>
+          ))}
+        </span>
+      </h1>
+
       <img src={profileImage} alt="Profile" id="profile-image" />
       <p>
         Hey, I'm Sophia! I'm a CS student at UCLA finishing off my sophomore
@@ -122,6 +149,7 @@ function AboutMe() {
             href={link.url}
             target="_blank"
             style={{ color: "inherit", textDecoration: "none" }}
+            key={link.name}
           >
             <link.icon size={ICON_SIZE} />
           </a>
@@ -133,27 +161,30 @@ function AboutMe() {
 
 function App() {
   return (
-    <div id="app">
-      <AboutMe />
-      <section id="content">
-        <Status
-          section="courses"
-          items={courses}
-          header="What I'm learning..."
-        />
-        <Status
-          section="projects"
-          items={projects}
-          header="What I'm working on..."
-        />
-        <Status
-          section="hobbies"
-          items={hobbies}
-          header="What I'm involved in..."
-        />
-        <Timeline />
-      </section>
-    </div>
+    <>
+      <div id="app">
+        <AboutMe />
+        <section id="content">
+          <Status
+            section="courses"
+            items={courses}
+            header="What I'm learning..."
+          />
+          <Status
+            section="projects"
+            items={projects}
+            header="What I'm working on..."
+          />
+          <Status
+            section="hobbies"
+            items={hobbies}
+            header="What I'm involved in..."
+          />
+          <Timeline />
+        </section>
+      </div>
+      <Background />
+    </>
   );
 }
 

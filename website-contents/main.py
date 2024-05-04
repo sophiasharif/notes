@@ -67,7 +67,6 @@ def process_status_object(object_lines: list[str]) -> dict:
             raise ValueError(f'Invalid data object: {item}')
     if attr != 'data':
         raise ValueError(f'Invalid status object: {object_lines}')
-    print(finalized_data)
     return {
         'type': type,
         'data': finalized_data
@@ -98,5 +97,5 @@ def process_time_object(object_lines: list[str]) -> dict:
 
 process_file_data('status', process_status_object)
 process_file_data('timeline', process_time_object)
-
+print("Data processed successfully!")
 

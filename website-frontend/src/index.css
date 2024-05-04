@@ -40,6 +40,8 @@ a {
   font-weight: 500;
   color: var(--primary);
   text-decoration: inherit;
+  z-index: 2;
+  position: relative;
 }
 a:hover,
 button:hover {
@@ -204,6 +206,11 @@ p {
 
 #name {
   overflow: hidden;
+}
+
+.name-subtitle {
+  margin: 0;
+  font-style: italic;
 }
 
 .letter {

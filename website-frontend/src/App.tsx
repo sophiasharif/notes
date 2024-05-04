@@ -121,21 +121,23 @@ function AboutMe() {
   }, []);
   return (
     <div id="about-me">
-      <h1 id="name">
-        <span className="letter-wrapper">
-          {"Sophia".split("").map((l, i) => (
-            <span className="letter" key={i}>
-              {l}
-            </span>
-          ))}{" "}
-          {"Sharif".split("").map((l, i) => (
-            <span className="letter" key={i}>
-              {l}
-            </span>
-          ))}
-        </span>
-      </h1>
-
+      <div>
+        <h1 id="name">
+          <span className="letter-wrapper">
+            {"Sophia".split("").map((l, i) => (
+              <span className="letter" key={i}>
+                {l}
+              </span>
+            ))}{" "}
+            {"Sharif".split("").map((l, i) => (
+              <span className="letter" key={i}>
+                {l}
+              </span>
+            ))}
+          </span>
+        </h1>
+        <p className="name-subtitle">Click anywhere for some color!</p>
+      </div>
       <img src={profileImage} alt="Profile" id="profile-image" />
       <p>
         Hey, I'm Sophia! I'm a CS student at UCLA finishing off my sophomore

@@ -85,13 +85,52 @@ function overlayCircle(
       backgroundCircle.element.remove();
     },
   });
+  return targetR;
+}
+
+function particles(
+  e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+  color: string,
+  duration: number,
+  overlaySize: number
+) {
+  const x = e.clientX;
+  const y = e.clientY;
+
+  let particles: Circle[] = [];
+  for (let i = 0; i < 30; i++) {
+    const particle = new Circle(x, y, anime.random(50, 100), color);
+    particles.push(particle);
+  }
+  anime({
+    targets: particles.map((particle) => particle.element),
+    scale: 0,
+    left: function (p: Circle, i: number) {
+      return anime.random(
+        particles[i].x - overlaySize / 2,
+        particles[i].x + overlaySize / 2
+      );
+    },
+    top: function (p: Circle, i: number) {
+      return anime.random(
+        particles[i].y - overlaySize / 2,
+        particles[i].y + overlaySize / 2
+      );
+    },
+    easing: "easeOutExpo",
+    duration: duration,
+    complete: () => {
+      particles.forEach((particle) => particle.element.remove());
+    },
+  });
 }
 
 function updateBackground(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
   const currColor = colorPicker.current();
   const nextColor = colorPicker.next();
   const duration = backgroundCircle(e, nextColor);
-  overlayCircle(e, currColor, duration);
+  const overlaySize = overlayCircle(e, currColor, duration);
+  particles(e, currColor, duration, overlaySize);
 }
 
 function Background() {

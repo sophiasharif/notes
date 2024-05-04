@@ -232,7 +232,5 @@ p {
 .circle {
   position: absolute;
   border-radius: 50%;
-  width: 10000px;
-  height: 10000px;
   z-index: 0;
 }

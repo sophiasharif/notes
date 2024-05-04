@@ -1,9 +1,25 @@
 import anime from "animejs";
 
+const palette = {
+  rose: "#f44336",
+  bright_blue: "#2980B9",
+  purple: "#282741",
+  indigo: "#6d1b7b",
+};
+
 const colorPicker = (() => {
-  const colors = ["#FF6138", "#FFBE53", "#2980B9", "#282741"];
-  let index = 0;
+  //   const colors = ["#FF6138", "#FFBE53", "#2980B9", "#282741"];
+  const colors = [
+    palette.bright_blue,
+    palette.purple,
+    palette.rose,
+    palette.indigo,
+  ];
+  let index = -1;
   function current() {
+    if (index == -1) {
+      return "#18181b";
+    }
     return colors[index % colors.length];
   }
   function next() {
@@ -43,16 +59,13 @@ class Circle {
 }
 
 function backgroundCircle(
-  e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+  x: number,
+  y: number,
+  radius: number,
+  duration: number,
   color: string
 ) {
-  const x = e.clientX;
-  const y = e.clientY;
-  const w = Math.max(window.innerWidth - x, x);
-  const h = Math.max(window.innerHeight - y, y);
-  const targetR = Math.sqrt(Math.pow(w, 2) + Math.pow(h, 2)) * 2;
-  const backgroundCircle = new Circle(x, y, targetR, color);
-  const duration = targetR / 2;
+  const backgroundCircle = new Circle(x, y, radius, color);
   anime({
     targets: backgroundCircle.element,
     scale: [0, 1],
@@ -67,14 +80,13 @@ function backgroundCircle(
 }
 
 function overlayCircle(
-  e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+  x: number,
+  y: number,
+  radius: number,
   color: string,
   duration: number
 ) {
-  const x = e.clientX;
-  const y = e.clientY;
-  const targetR = Math.max(window.innerWidth, window.innerHeight) / 3;
-  const backgroundCircle = new Circle(x, y, targetR, color);
+  const backgroundCircle = new Circle(x, y, radius, color);
   anime({
     targets: backgroundCircle.element,
     scale: [0, 1],
@@ -85,36 +97,33 @@ function overlayCircle(
       backgroundCircle.element.remove();
     },
   });
-  return targetR;
 }
 
 function particles(
-  e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+  x: number,
+  y: number,
   color: string,
   duration: number,
-  overlaySize: number
+  maxSpread: number
 ) {
-  const x = e.clientX;
-  const y = e.clientY;
-
   let particles: Circle[] = [];
   for (let i = 0; i < 30; i++) {
-    const particle = new Circle(x, y, anime.random(50, 100), color);
+    const particle = new Circle(x, y, anime.random(40, 70), color);
     particles.push(particle);
   }
   anime({
     targets: particles.map((particle) => particle.element),
     scale: 0,
-    left: function (p: Circle, i: number) {
+    left: function (_p: Circle, i: number) {
       return anime.random(
-        particles[i].x - overlaySize / 2,
-        particles[i].x + overlaySize / 2
+        particles[i].x - maxSpread,
+        particles[i].x + maxSpread
       );
     },
-    top: function (p: Circle, i: number) {
+    top: function (_p: Circle, i: number) {
       return anime.random(
-        particles[i].y - overlaySize / 2,
-        particles[i].y + overlaySize / 2
+        particles[i].y - maxSpread,
+        particles[i].y + maxSpread
       );
     },
     easing: "easeOutExpo",
@@ -128,9 +137,18 @@ function particles(
 function updateBackground(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
   const currColor = colorPicker.current();
   const nextColor = colorPicker.next();
-  const duration = backgroundCircle(e, nextColor);
-  const overlaySize = overlayCircle(e, currColor, duration);
-  particles(e, currColor, duration, overlaySize);
+  const x = e.clientX;
+  const y = e.clientY;
+  const w = Math.max(window.innerWidth - x, x);
+  const h = Math.max(window.innerHeight - y, y);
+  const backgroundRadius = Math.sqrt(Math.pow(w, 2) + Math.pow(h, 2)) * 2;
+  const overlayRadius = Math.max(window.innerWidth, window.innerHeight) / 3;
+  const maxParticleSpread = overlayRadius / 1.75;
+  const duration = backgroundRadius / 2;
+
+  backgroundCircle(x, y, backgroundRadius, duration, nextColor);
+  overlayCircle(x, y, overlayRadius, currColor, duration);
+  particles(x, y, currColor, duration, maxParticleSpread);
 }
 
 function Background() {

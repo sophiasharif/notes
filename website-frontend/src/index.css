@@ -66,6 +66,7 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
   color: var(--text);
+  z-index: 2;
 }
 
 #app {
@@ -93,6 +94,7 @@ button {
 #links {
   display: flex;
   gap: 1.5rem;
+  z-index: 2;
 }
 
 #links a:hover {

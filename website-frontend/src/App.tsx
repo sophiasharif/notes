@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import status_data from "./data/status.json";
 import timeline_data from "./data/timeline.json";
+import bio_data from "./data/bio.json";
 import profileImage from "./images/profile.jpg";
 import { FaGithub, FaPen, FaLinkedin, FaDice } from "react-icons/fa";
 import { IoDocumentText } from "react-icons/io5";
@@ -25,6 +26,7 @@ const timeline: TimelineItem[] = timeline_data;
 const courses = status_data.filter((d) => d.type == "courses")[0].data;
 const projects = status_data.filter((d) => d.type == "projects")[0].data;
 const hobbies = status_data.filter((d) => d.type == "hobbies")[0].data;
+const bio = bio_data[0].bio;
 const links = [
   { name: "GitHub", url: "https://github.com/sophiasharif", icon: FaGithub },
   {
@@ -139,12 +141,7 @@ function AboutMe() {
         <p className="name-subtitle">Click anywhere for some color!</p>
       </div>
       <img src={profileImage} alt="Profile" id="profile-image" />
-      <p>
-        Hey, I'm Sophia! I'm a CS student at UCLA finishing off my sophomore
-        year. After that, I'll be heading to New York to work at Palantir as a
-        Software Engineer intern, where I'll be working on their Foundry
-        platform!
-      </p>
+      <p>{bio}</p>
       <div id="links">
         {links.map((link) => (
           <a

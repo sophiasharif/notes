@@ -1,22 +1,117 @@
 [
   {
     "event": "LA Hacks MC",
-    "date": "May 2024",
+    "date": "April 2024",
     "description": "<p>I led the opening and closing ceremonies for LA Hacks 2024, a hackathon with over 1000 participants. This was by far the most people I've ever spoken to! Check out my corny jokes in the <a href=\"https://docs.google.com/presentation/d/1v-54q1Q4sfXJ47G3KjtHtoXRQzee6Vd8bRaDwil_kFc/edit?usp=sharing\">opening ceremony slides</a>.</p>"
   },
   {
     "event": "Organized Petition",
     "date": "February 2024",
-    "description": "<p>I organized a petition to encourage UCLA to hire Dr. Wong, one of my favorite professors, as a lecturer. Over <a href=\"https://docs.google.com/document/d/1V8X0s9-g_muYc83c0UciqMfB-MTaUXuGo5gY83WroKo/edit?usp=sharing\">700 people</a> signed <a href=\"https://docs.google.com/forms/d/1IU_bV1gCwO47bVi9sd7LW2ZU-sijuikmyFL_8VmyMUQ/edit\">our petition</a> and our <a href=\"https://www.reddit.com/r/ucla/comments/1adojws/comment/kk2l7qz/\">reddit post</a> became one of the top r/ucla posts of all time! The Daily Bruin even wrote <a href=\"https://dailybruin.com/2024/03/01/we-really-really-love-him-students-petition-to-keep-math-professor-at-ucla\">an article</a> about it.</p>"
+    "description": "<p>I organized a petition to encourage UCLA to hire Dr. Wong, one of my favorite professors. Over <a href=\"https://docs.google.com/document/d/1V8X0s9-g_muYc83c0UciqMfB-MTaUXuGo5gY83WroKo/edit?usp=sharing\">700 people</a> signed <a href=\"https://docs.google.com/forms/d/1IU_bV1gCwO47bVi9sd7LW2ZU-sijuikmyFL_8VmyMUQ/edit\">our petition</a> and our <a href=\"https://www.reddit.com/r/ucla/comments/1adojws/comment/kk2l7qz/\">reddit post</a> became one of the top r/ucla posts of all time! The Daily Bruin even wrote <a href=\"https://dailybruin.com/2024/03/01/we-really-really-love-him-students-petition-to-keep-math-professor-at-ucla\">an article</a> about it.</p>"
+  },
+  {
+    "event": "Accepted Palantir Offer!",
+    "date": "November 2023",
+    "description": "<p>After <a href=\"https://leetcode.com/u/sophiasharif/\">leetcoding</a> all summer and doing interviews all of fall quarter, I made it to the final rounds of Amazon, Citadel, TikTok, and Palantir. I accepted my offer to work at Palantir as a software engineer intern in New York City!</p>"
+  },
+  {
+    "event": "MATH 32AH Learning Assistant",
+    "date": "September 2023 - December 2023",
+    "description": "<p>This is one of the most fun things I've done at UCLA! I enjoyed my experience in honors multivariable calculus so much that I decided to become a learning assistant for the course. I held weekly office hours, helped in discussion, and answered homework questions.</p>"
+  },
+  {
+    "event": "Freshman Year at UCLA",
+    "date": "September 2022 - June 2023",
+    "description": "<p>I had an amazing time during my first year at UCLA! I was a move-in assistant, joined the LA Hacks tech team, found an amazing comminity in MATH 32AH/BH,\nI took 12 interesting classes, joined the LA Hacks tech team, and took lots of interesting classes. I also made some amazing friends and had a great time exploring LA.</p>"
+  },
+  {
+    "event": "Started to learn web development",
+    "date": "June 2022 - December 2022",
+    "description": "<p>I had a lot of time in the summer after my senior year and during my first quarter at UCLA, so I decided to pick up web development. I started with HTML, CSS, JavaScript, and Vue.js. My first project was <a href=\"https://sophiasharif.github.io/minesweeper-vue/\">Minesweeper</a> in Vue.js, which has some of the <a href=\"https://github.com/sophiasharif/minesweeper-vue\">jankiest code</a> I've ever written. I also created the first version of my <a href=\"pw1.archive.sophiasharif.com\">personal website</a> during winter break of my freshman year.</p>"
+  },
+  {
+    "event": "Commited to UCLA!",
+    "date": "May 2022",
+    "description": "<p>After getting my college results back, I decided to commit to UCLA! I'm proud to be a Bruin and have loved my time here so far.</p>"
   },
   {
     "event": "Mathematics Department Award",
-    "date": "February 2022",
-    "description": "<p>I was awarded the Mathematics Department Award for my academic performance in the subject.</p>"
+    "date": "June 2022",
+    "description": "<p>At my high school, faculty department awards recognized the top student (out of a class of 570) in each department at my high school. I received the award for mathematics.</p>"
+  },
+  {
+    "event": "Head Organizer of Physics Tutoring",
+    "date": "August 2021 - June 2022",
+    "description": "<p>In my senior year, I had finished all the physics classes my high school offered and wanted to help others succeed in the subject, especially because of my rough start. With my friend, I started a physics tutoring program where we tutored 5 times per week. Our sessions sometimes had over 40 students! The tutoring program is still running today and is much larger. It is my proudest accomplishment in high school.</p>"
+  },
+  {
+    "event": "National Merit Scholarship Recipient",
+    "date": "April 2022",
+    "description": "<p>I was named a National Merit Finalist, which is awarded to the top 1% of PSAT test-takers. I was also the only one of the 17 finalists from my high school to recieve the $2500 scholarship.</p>"
+  },
+  {
+    "event": "AVPFirst Internship",
+    "date": "September 2020 - June 2021",
+    "description": "<p>Although I stopped playing beach volleyball, I still wanted to stay involved in the community. I interned for AVPFirst, the youth branch of the AVP, where I helped organize pro tournaments and youth community clinics and raised $3,500 by selling merch. I also managed the AVPFirst Instagram account, where I grew the following from 1,000 to 6,500.</p>"
+  },
+  {
+    "event": "Highest Grade in Physics",
+    "date": "April 2020 - June 2021",
+    "description": "<p>After a rough start, I did lots of extra practice problems to improve my problem-solving skills. The work paid off! By April of my sophomore year, I had the highest grade out of all honors physics classes, which were mostly taken by upperclassmen. I maintained the highest grade as a junior out of all AP Physics C classes.</p>"
+  },
+  {
+    "event": "AMC 12 1st Place in School",
+    "date": "March 2021",
+    "description": "<p>Our high school offered math contests at lunch that students participated in for extra credit. The highest scorers then competed in the AMC, which tests math problem-solving skills. After quitting beach volleyball, I took some extra math classes and started focusing on academics more. I ended up getting 1st on the AMC12 as a junior, outscoring 1000+ upperclassmen.</p>"
+  },
+  {
+    "event": "Back Fracture",
+    "date": "December 2020",
+    "description": "<p>Throughout the fall of my sophomore year, I noticed a growing back pain when playing volleyball or doing heavy lifting. It turned out to be a spinal stress fracture from over use. I had to take a break from volleyball for several months, but after returning, I realized I was really burnt out and wanted to focus on academics. After a great run and a lot of fun, I decided to quit beach volleyball and focus on school.</p>"
+  },
+  {
+    "event": "First test fail \ud83d\ude2e \ud83d\ude2d",
+    "date": "September 2019",
+    "description": "<p>I challenged myself by taking a difficult physics class generally reserved for juniors and seniors. I was so excited to take the class, but I was a bit appalled when I got 58% percent on my first test. I had left the entire second half of the test blank because of the time crunch. But this was just the beginning of my physics journey... over the next months, I put in a lot of extra hours to improve my problem-solving speed.</p>"
+  },
+  {
+    "event": "Queen of the Beach winner",
+    "date": "July 2019",
+    "description": "<p>I spent a week in Georgia training with the USA Beach Volleyball National Team. We ended the camp with a Queen of the Beach tournament, where players are assigned new partners every game. I ended up winning the tournament!</p>"
   },
   {
     "event": "Beach Volleyball National Team",
     "date": "December 2019 - December 2020",
-    "description": "<p>I was a member of the Beach Volleyball National Team, where I trained and competed in various tournaments.\nThis was an important part of my training. I also won the Queen of the Beach tournament at the end of our training camp in Georgia!\n<a href=\"https://www.fivb.com/en/beachvolleyball\">Link to the official website</a></p>"
+    "description": "<p>After ditching indoor volleyball to focus exclusively on beach, I was one of 24 players selected for the USA national high-performance team!</p>"
+  },
+  {
+    "event": "#1 Beach Volleyball Player in Northern California",
+    "date": "November 2018 - March 2020",
+    "description": "<p>During the summer of 2018, I practiced almost daily and attended 2-3 tournaments every week. One time, it was over 100 degrees the entire day, and I went to a 5-hour camp and then to a 7-hour tournament, which we ended up winning! All these extra tournaments and practice ended up paying off, as I secured the #1 spot in Northern California in the following fall.</p>"
+  },
+  {
+    "event": "First tournament win!",
+    "date": "July 2018",
+    "description": "<p>After not even making it to playoffs for the first 6 months of playing beach volleyball, I finally won my first tournament! It was a small tournament and wasn't super competitive, but I was so excited and proud of myself.</p>"
+  },
+  {
+    "event": "First beach volleyball tournament!",
+    "date": "July 2017",
+    "description": "<p>I started playing beach volleyball in the spring of 2017. I was so excited to play in my first tournament! We ended up losing every game, but I had so much fun and decided I want to commit to the sport. Fun fact: Since this was my first tourney, I forgot to put on sunscreen, and I looked like pickachu for the next week! Needless to say, this tournament was quite a learning experience.</p>"
+  },
+  {
+    "event": "Swimming",
+    "date": "March 2013 - June 2015",
+    "description": "<p>My mom wanted me to be more active and signed me up for swimming. I was not the greatest swimmer, and I really was not a fan overall. I quit after a torturous two years and joined the school volleyball team in 6th grade instead, and never looked back.</p>"
+  },
+  {
+    "event": "Russia Excursion",
+    "date": "May 2010 - January 2013",
+    "description": "<p>My family and I moved to Russia for a few years. I attended a Russian school and learned to speak Russian fluently. While I was there, I danced competitively and performed in Tchaikovsky Hall in Moscow. Fun fact: Russian dancing is so brutal that this is the only time in my life I had a six-pack, but I'm working hard to bring back those glory days.</p>"
+  },
+  {
+    "event": "I AM BORN",
+    "date": "December 2003",
+    "description": "<p>Some refer to this as Earth's most monumental event, but I'll let you be the judge of that. I'm proud of my heritage -- my mom is Russian and my dad is Iranian, so I was born in the US but grew up in a multicultural household.</p>"
   }
 ]

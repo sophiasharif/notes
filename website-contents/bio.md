@@ -1,0 +1,1 @@
+bio: Hey, I'm Sophia! I'm a CS student at UCLA finishing off my sophomore year. After that, I'll be heading to New York to work at Palantir as a Software Engineer intern, where I'll be working on their Foundry platform!

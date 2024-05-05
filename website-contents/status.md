@@ -1,5 +1,5 @@
 title: courses
-data: MATH 115AH (Honors Linear Algebra); CS 118 (Networking); PSYCTRY 79 (Applied Neuroscience)
+data: MATH 115AH (Honors Linear Algebra); ECE 239AS (Deep Learning 2); PSYCTRY 79 (Applied Neuroscience)
 
 title: projects
 data: Preparing to MC LA Hacks 2024 (I'm preparing slides and practicing presenting the opening and closing ceremonies!); Personal website (I'm revamping it to make it easier to update regularly); Being more active (Hitting the gym more often this quarter 💪)

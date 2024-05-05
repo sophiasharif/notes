@@ -143,6 +143,8 @@ div.pagination span {
 #timeline-content {
   height: 130px;
   overflow: scroll;
+  z-index: 2;
+  position: relative;
 }
 
 h1,

@@ -94,8 +94,19 @@ def process_time_object(object_lines: list[str]) -> dict:
         'description': description_markdown
     }
 
+# BIO.MD SPECIFIC FUNCTIONS
+
+def process_bio_object(object_lines: list[str]) -> dict:
+    attr, bio = process_string(object_lines[0])
+    if attr != 'bio':
+        raise ValueError(f'Invalid bio object: {object_lines}')
+    return {
+        'bio': bio,
+    }
+
 
 process_file_data('status', process_status_object)
 process_file_data('timeline', process_time_object)
+process_file_data('bio', process_bio_object)
 print("Data processed successfully!")
 

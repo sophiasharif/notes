@@ -7,9 +7,11 @@
   --primary: #646cff;
   --primary-variant: #535bf2;
 
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  font-family: monospace;
+  font-size: 0.9rem;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
 
   color-scheme: light dark;
   color: var(--text);
@@ -28,7 +30,7 @@
 @media (min-width: 1000px) {
   :root {
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
   }
 }
 
@@ -55,6 +57,29 @@ body {
 
 h1 {
   font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 0.25rem;
+  margin-top: 0.75rem;
+}
+
+p {
+  margin: 0;
 }
 
 button {
@@ -147,21 +172,6 @@ div.pagination span {
   position: relative;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin-bottom: 0.25rem;
-  margin-top: 0.75rem;
-}
-
-p {
-  margin: 0;
-}
-
 @media (max-width: 1000px) {
   :root {
     padding: 0;
@@ -202,7 +212,7 @@ p {
 
 .subtitle {
   font-style: italic;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   margin-bottom: 0.5rem;
 }
 

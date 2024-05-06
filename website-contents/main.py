@@ -1,6 +1,8 @@
 import json
 import markdown
 
+WORKING_DIRECTORY = '/Users/sophiasharif/Desktop/projects/blog/website-contents'
+
 def get_object_data(lines: list[str]) -> list[list[str]]:
     # object data is a list of lists, where each list contains the lines of a single object
     objects = []
@@ -28,11 +30,11 @@ def process_string_list(line: str):
 
 def process_file_data(filename, object_processor):
     # read from <filename.md> and write to <filename.json>
-    with open(f"{filename}.md", 'r') as f:
+    with open(f"{WORKING_DIRECTORY}/{filename}.md", 'r') as f:
         lines = f.readlines()
         object_data = get_object_data(lines)
     data = [object_processor(o) for o in object_data]
-    with open(f"{filename}.json", 'w') as f:
+    with open(f"{WORKING_DIRECTORY}/{filename}.json", 'w') as f:
         json.dump(data, f, indent=2)
 
 def process_markdown_lines_to_html(lines: list[str]) -> str:

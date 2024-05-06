@@ -1,20 +1,14 @@
 import anime from "animejs";
 
 const palette = {
-  rose: "#f44336",
-  bright_blue: "#2980B9",
-  purple: "#282741",
-  indigo: "#6d1b7b",
+  teal: "#00695f",
+  black: "#18181b",
+  dark_blue: "#282741",
+  blue: "#2c387e",
 };
 
 const colorPicker = (() => {
-  //   const colors = ["#FF6138", "#FFBE53", "#2980B9", "#282741"];
-  const colors = [
-    palette.bright_blue,
-    palette.purple,
-    palette.rose,
-    palette.indigo,
-  ];
+  const colors = [palette.blue, palette.teal, palette.dark_blue, palette.black];
   let index = -1;
   function current() {
     if (index == -1) {
